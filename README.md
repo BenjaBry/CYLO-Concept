@@ -26,3 +26,6 @@ Sube el contenido de esta carpeta a Cloudflare Pages, Netlify, GitHub Pages u ot
 - Added COLECCIONES consistently to the primary navigation across pages.
 - Reduced footer/newsletter vertical space for a tighter premium layout.
 - Added sticky catalog filters on desktop.
+
+
+## Vercel Fix
