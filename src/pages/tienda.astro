@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CartDrawer from '../components/CartDrawer.astro';
+import Newsletter from '../components/Newsletter.astro';
+---
+<BaseLayout title="Tienda — CONCEPT CYLO" pageClass="tienda">
+  <Header slot="header" />
+  
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">CONCEPT CYLO · CATALOG</div>
+      <h1 id="catalogTitle">Todo el universo CYLO.</h1>
+      <p id="catalogIntro">Más de 1,000 referencias en un catálogo diseñado para navegar rápido, filtrar con precisión y encontrar exactamente lo que buscas.</p>
+    </div>
+  </section>
+  <section class="product-section">
+    <div class="container">
+      <div class="catalog-layout">
+        <aside class="filters">
+          <div class="filter-title">
+            <span>FILTRAR</span>
+            <button id="clearFilters">LIMPIAR</button>
+          </div>
+          <div class="filter-group">
+            <label>CATEGORÍA</label>
+            <select id="categoryFilter">
+              <option value="">Todas</option>
+              <option>Moda</option>
+              <option>Calzado</option>
+              <option>Tecnología</option>
+              <option>Electrodomésticos</option>
+              <option>Belleza</option>
+              <option value="Sale">Sale</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>PERFIL</label>
+            <select id="genderFilter">
+              <option value="">Todos</option>
+              <option>Mujer</option>
+              <option>Hombre</option>
+              <option>Unisex</option>
+              <option>Hogar</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>MARCA</label>
+            <select id="brandFilter">
+              <option value="">Todas</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>PRECIO MÁXIMO</label>
+            <input id="priceFilter" type="range" min="100" max="12000" step="50" value="12000">
+            <div class="range">
+              <span>Q 100</span>
+              <span>Q <span id="priceValue">12,000</span></span>
+            </div>
+          </div>
+        </aside>
+        <div>
+          <div class="catalog-toolbar">
+            <p id="resultMeta"></p>
+            <select id="sortSelect">
+              <option value="featured">ORDENAR: DESTACADOS</option>
+              <option value="newest">MÁS NUEVOS</option>
+              <option value="priceAsc">PRECIO: MENOR A MAYOR</option>
+              <option value="priceDesc">PRECIO: MAYOR A MENOR</option>
+              <option value="name">NOMBRE</option>
+            </select>
+          </div>
+          <div id="productGrid" class="product-grid"></div>
+          <div class="load-row">
+            <button id="loadMore" class="btn btn-outline">CARGAR MÁS</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CartDrawer slot="cart" />
+  
+  <div slot="footer">
+    <Newsletter />
+    <Footer />
+  </div>
+</BaseLayout>

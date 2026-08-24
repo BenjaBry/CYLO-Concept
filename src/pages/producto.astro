@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CartDrawer from '../components/CartDrawer.astro';
+import Newsletter from '../components/Newsletter.astro';
+---
+<BaseLayout title="Producto — CONCEPT CYLO" pageClass="tienda">
+  <Header slot="header" />
+  
+  <section class="product-detail container" id="productDetail"></section>
+  <section class="service-band">
+    <div class="container service-grid">
+      <article>
+        <h4>Disponibilidad</h4>
+        <p>Consulta antes de confirmar.</p>
+      </article>
+      <article>
+        <h4>Envíos</h4>
+        <p>Coordinamos a todo Guatemala.</p>
+      </article>
+      <article>
+        <h4>Atención</h4>
+        <p>Soporte por WhatsApp.</p>
+      </article>
+      <article>
+        <h4>Selección</h4>
+        <p>Explora más de 1,200 referencias.</p>
+      </article>
+    </div>
+  </section>
+
+  <CartDrawer slot="cart" />
+  
+  <div slot="footer">
+    <Newsletter />
+    <Footer />
+  </div>
+</BaseLayout>

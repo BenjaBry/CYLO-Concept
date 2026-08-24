@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CartDrawer from '../components/CartDrawer.astro';
+import Newsletter from '../components/Newsletter.astro';
+---
+<BaseLayout title="Colecciones — CONCEPT CYLO" pageClass="colecciones">
+  <Header slot="header" />
+  
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">CONCEPT CYLO · CURATED WORLDS</div>
+      <h1>Las colecciones que definen el universo CYLO.</h1>
+      <p>En lugar de navegar solo por categorías, descubre selecciones construidas alrededor de estilo, ocasión y personalidad.</p>
+    </div>
+  </section>
+  <section class="container" style="padding-bottom:90px">
+    <div class="collection-grid">
+      <a class="collection-card large reveal" href="/tienda?category=Moda">
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1400&q=88" alt="Moda">
+        <div class="collection-overlay">
+          <span>01 · EDIT</span>
+          <h3>CYLO Essentials</h3>
+          <p>Prendas versátiles, siluetas limpias y una selección pensada para todos los días.</p>
+        </div>
+      </a>
+      <a class="collection-card small reveal" href="/tienda?category=Calzado">
+        <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1000&q=88" alt="Calzado">
+        <div class="collection-overlay">
+          <span>02 · FOOTWEAR</span>
+          <h3>The Shoe Room</h3>
+          <p>Sneakers, cuero y clásicos.</p>
+        </div>
+      </a>
+      <a class="collection-card small reveal" href="/tienda?category=Tecnología">
+        <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=1000&q=88" alt="Tecnología">
+        <div class="collection-overlay">
+          <span>03 · TECH</span>
+          <h3>Tech Select</h3>
+          <p>Tecnología funcional con diseño.</p>
+        </div>
+      </a>
+      <a class="collection-card large reveal" href="/tienda?category=Electrodomésticos">
+        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1400&q=88" alt="Hogar">
+        <div class="collection-overlay">
+          <span>04 · HOME</span>
+          <h3>Home Edit</h3>
+          <p>Objetos para hacer del hogar un espacio más inteligente, práctico y visual.</p>
+        </div>
+      </a>
+      <a class="collection-card large reveal" href="/editorial">
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1400&q=88" alt="Editorial">
+        <div class="collection-overlay">
+          <span>05 · EDITORIAL</span>
+          <h3>New Season</h3>
+          <p>Historias, tendencias y selecciones curadas desde la mirada CYLO.</p>
+        </div>
+      </a>
+      <a class="collection-card small reveal" href="/tienda?category=Belleza">
+        <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba9b5d7b?auto=format&fit=crop&w=1000&q=88" alt="Belleza">
+        <div class="collection-overlay">
+          <span>06 · BEAUTY</span>
+          <h3>Beauty Notes</h3>
+          <p>Fragancias y cuidado personal.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <CartDrawer slot="cart" />
+  
+  <div slot="footer">
+    <Newsletter />
+    <Footer />
+  </div>
+</BaseLayout>

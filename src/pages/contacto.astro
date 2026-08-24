@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CartDrawer from '../components/CartDrawer.astro';
+import Newsletter from '../components/Newsletter.astro';
+---
+<BaseLayout title="Contacto — CONCEPT CYLO" pageClass="contacto">
+  <Header slot="header" />
+  
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">HABLEMOS</div>
+      <h1>Estamos para ayudarte.</h1>
+      <p>Compra online, consulta de producto, disponibilidad, cambios o ideas para encontrar algo concreto. Escríbenos.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="contact-card reveal">
+        <div class="eyebrow">ATENCIÓN PERSONAL</div>
+        <h3>Cuéntanos qué necesitas.</h3>
+        <form onsubmit="event.preventDefault();alert('Tu mensaje fue recibido. Te contactaremos de forma personalizada.');">
+          <input required placeholder="Nombre">
+          <input required type="email" placeholder="Correo">
+          <select>
+            <option>Consulta general</option>
+            <option>Producto</option>
+            <option>Envío</option>
+            <option>Cambios</option>
+            <option>Distribución</option>
+          </select>
+          <textarea required placeholder="Escribe tu mensaje"></textarea>
+          <button class="btn btn-dark" style="width:100%">ENVIAR MENSAJE</button>
+        </form>
+      </div>
+      <div class="contact-card reveal">
+        <div class="eyebrow">CONTACTO</div>
+        <div class="contact-list">
+          <div><b>WhatsApp</b><span>+502 0000-0000</span></div>
+          <div><b>Correo</b><span>hola@conceptcylo.com</span></div>
+          <div><b>Horario</b><span>Lunes a sábado · 9:00–18:00</span></div>
+          <div id="envios"><b>Envíos</b><span>Todo Guatemala. Tiempo y costo dependen de ubicación y producto.</span></div>
+          <div id="cambios"><b>Cambios</b><span>Consulta las condiciones antes de confirmar tu compra.</span></div>
+          <div id="faq"><b>Preguntas frecuentes</b><span>Te ayudamos con stock, tallas, garantías y seguimiento de pedido.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CartDrawer slot="cart" />
+  
+  <div slot="footer">
+    <Newsletter />
+    <Footer />
+  </div>
+</BaseLayout>

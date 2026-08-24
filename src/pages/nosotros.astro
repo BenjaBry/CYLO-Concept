@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CartDrawer from '../components/CartDrawer.astro';
+import Newsletter from '../components/Newsletter.astro';
+---
+<BaseLayout title="Nosotros — CONCEPT CYLO" pageClass="nosotros">
+  <Header slot="header" />
+  
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">DESDE 2005</div>
+      <h1>Un estándar propio.</h1>
+      <p>CONCEPT CYLO es un espacio comercial construido alrededor de una idea: comprar puede ser una experiencia de criterio, no de exceso.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container split reveal">
+      <div class="media" style="background-image:url('https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=1800&q=88')"></div>
+      <div class="copy">
+        <div class="eyebrow">NUESTRA HISTORIA</div>
+        <h2>Curamos antes<br>de vender.</h2>
+        <p>Desde 2005 hemos entendido la tienda como una selección: marcas, productos y categorías que pueden convivir bajo una misma mirada. El resultado es un catálogo amplio, pero con una navegación simple y una experiencia visual consistente.</p>
+        <p>CYLO conecta moda, calzado, tecnología, belleza y hogar porque la vida del cliente también los conecta.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">PRINCIPIOS</div>
+          <h2>Cómo pensamos.</h2>
+        </div>
+      </div>
+      <div class="service-grid" style="background:#fff;border:1px solid var(--line);padding:28px">
+        <article>
+          <h4>01 · Criterio</h4>
+          <p>No buscamos tener todo. Buscamos que lo que tenemos tenga sentido.</p>
+        </article>
+        <article>
+          <h4>02 · Presentación</h4>
+          <p>La experiencia comienza antes de abrir una ficha de producto.</p>
+        </article>
+        <article>
+          <h4>03 · Servicio</h4>
+          <p>La tecnología ayuda; la atención humana termina de resolver.</p>
+        </article>
+        <article>
+          <h4>04 · Evolución</h4>
+          <p>El catálogo cambia. El estándar se mantiene.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <CartDrawer slot="cart" />
+  
+  <div slot="footer">
+    <Newsletter />
+    <Footer />
+  </div>
+</BaseLayout>

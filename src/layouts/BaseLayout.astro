@@ -1,0 +1,40 @@
+---
+import '../styles/global.css';
+
+const { title = "CONCEPT CYLO", description = "CONCEPT CYLO (Est. 2005), selección premium de moda, calzado, tecnología y hogar en Guatemala.", pageClass = "home" } = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content={description}>
+  <title>{title}</title>
+  <link rel="icon" type="image/png" href="/logo-icon.png">
+  <link rel='preconnect' href='https://fonts.googleapis.com'>
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+  <link href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap' rel='stylesheet'>
+</head>
+<body class={`preload`} data-page={pageClass}>
+  <div class="announcement">ENVÍOS A TODO GUATEMALA · COMPRA SEGURA · ATENCIÓN PERSONALIZADA</div>
+  
+  <slot name="header" />
+  
+  <main id={pageClass === 'tienda' ? 'catalogo' : ''}>
+    <slot />
+  </main>
+  
+  <div id="drawerBackdrop" class="drawer-backdrop"></div>
+  <slot name="cart" />
+  
+  <div class="page-transition">
+    <img src="/logo-transition.png" alt="Cargando..." class="transition-logo">
+  </div>
+  
+  <slot name="footer" />
+  
+  <script>
+    import '../scripts/app.js';
+  </script>
+</body>
+</html>

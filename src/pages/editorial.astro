@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CartDrawer from '../components/CartDrawer.astro';
+import Newsletter from '../components/Newsletter.astro';
+---
+<BaseLayout title="Editorial — CONCEPT CYLO" pageClass="editorial">
+  <Header slot="header" />
+  
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">CYLO EDITORIAL</div>
+      <h1>Ideas para vivir mejor.</h1>
+      <p>Historias de producto, estilo, tecnología y espacios. Una capa de contenido para que CYLO sea también un lugar al que vuelves por inspiración.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container story-grid">
+      <a class="story reveal" href="/tienda?category=Moda">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=90')"></div>
+        <div class="copy">
+          <div class="eyebrow" style="color:#ddd5c9">STYLE NOTES</div>
+          <h2>El uniforme bien pensado.</h2>
+          <p>Cómo construir una rotación de prendas que funcione más allá de una temporada.</p>
+        </div>
+      </a>
+      <a class="story reveal" href="/tienda?category=Tecnología">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1600&q=90')"></div>
+        <div class="copy">
+          <div class="eyebrow" style="color:#ddd5c9">TECH NOTES</div>
+          <h2>La tecnología que sí usamos.</h2>
+          <p>Objetos pequeños que simplifican el trabajo, la casa y el día.</p>
+        </div>
+      </a>
+      <a class="story reveal" href="/tienda?category=Electrodomésticos">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1600&q=90')"></div>
+        <div class="copy">
+          <div class="eyebrow" style="color:#ddd5c9">HOME NOTES</div>
+          <h2>Casa, pero con intención.</h2>
+          <p>Menos objetos aleatorios. Más cosas que realmente usas.</p>
+        </div>
+      </a>
+      <a class="story reveal" href="/tienda?category=Calzado">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1600&q=90')"></div>
+        <div class="copy">
+          <div class="eyebrow" style="color:#ddd5c9">FOOTWEAR NOTES</div>
+          <h2>Una buena base.</h2>
+          <p>El calzado define el ritmo del resto del look.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <CartDrawer slot="cart" />
+  
+  <div slot="footer">
+    <Newsletter />
+    <Footer />
+  </div>
+</BaseLayout>

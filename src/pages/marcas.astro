@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CartDrawer from '../components/CartDrawer.astro';
+import Newsletter from '../components/Newsletter.astro';
+---
+<BaseLayout title="Marcas — CONCEPT CYLO" pageClass="marcas">
+  <Header slot="header" />
+  
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">THE CYLO DIRECTORY</div>
+      <h1>Marcas, sin ruido.</h1>
+      <p>Una colección de nombres reconocibles, emergentes y funcionales organizada para que puedas ir directo a lo que buscas.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="brands-grid reveal">
+        <a class="brand-cell" href="/tienda?q=Apple">Apple</a>
+        <a class="brand-cell" href="/tienda?q=Adidas">Adidas</a>
+        <a class="brand-cell" href="/tienda?q=Calvin%20Klein">Calvin Klein</a>
+        <a class="brand-cell" href="/tienda?q=Tommy%20Hilfiger">Tommy Hilfiger</a>
+        <a class="brand-cell" href="/tienda?q=Nike">Nike</a>
+        <a class="brand-cell" href="/tienda?q=Samsung">Samsung</a>
+        <a class="brand-cell" href="/tienda?q=Sony">Sony</a>
+        <a class="brand-cell" href="/tienda?q=Skechers">Skechers</a>
+        <a class="brand-cell" href="/tienda?q=JBL">JBL</a>
+        <a class="brand-cell" href="/tienda?q=Levi’s">Levi’s</a>
+        <a class="brand-cell" href="/tienda?q=KitchenAid">KitchenAid</a>
+        <a class="brand-cell" href="/tienda?q=Oster">Oster</a>
+        <a class="brand-cell" href="/tienda?q=Guess">Guess</a>
+        <a class="brand-cell" href="/tienda?q=New%20Balance">New Balance</a>
+        <a class="brand-cell" href="/tienda?q=Clinique">Clinique</a>
+        <a class="brand-cell" href="/tienda?q=Lancôme">Lancôme</a>
+      </div>
+    </div>
+  </section>
+
+  <CartDrawer slot="cart" />
+  
+  <div slot="footer">
+    <Newsletter />
+    <Footer />
+  </div>
+</BaseLayout>

@@ -1,0 +1,23 @@
+{
+  "name": "concept-cylo",
+  "version": "1.0.0",
+  "description": "CONCEPT CYLO - Cat�logo est�tico con Astro",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.14.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.3",
+    "typescript": "^5.5.4"
+  },
+  "allowScripts": {
+    "esbuild@0.21.5": true,
+    "sharp@0.33.5": true
+  }
+}
