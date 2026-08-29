@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+import CustomCursor from '../components/ui/CustomCursor.astro';
 import '../styles/global.css';
 
 const { title = "CONCEPT CYLO", description = "CONCEPT CYLO (Est. 2005), selección premium de moda, calzado, tecnología y hogar en Guatemala.", pageClass = "home" } = Astro.props;
@@ -10,12 +12,14 @@ const { title = "CONCEPT CYLO", description = "CONCEPT CYLO (Est. 2005), selecci
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content={description}>
   <title>{title}</title>
-  <link rel="icon" type="image/png" href="/logo-icon.png">
+  <link rel="icon" type="image/png" href="/favicon.png">
   <link rel='preconnect' href='https://fonts.googleapis.com'>
   <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
   <link href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap' rel='stylesheet'>
+  <ViewTransitions />
 </head>
 <body class={`preload`} data-page={pageClass}>
+  <CustomCursor />
   <div class="announcement">ENVÍOS A TODO GUATEMALA · COMPRA SEGURA · ATENCIÓN PERSONALIZADA</div>
   
   <slot name="header" />

@@ -38,19 +38,7 @@ function setActiveNav(){
   }
 }
 
-function transitionLinks(){
-  // Using Astro, links should route normally, but we can keep the animation
-  document.querySelectorAll('a[href^="/"]').forEach(a=>{
-    a.addEventListener('click',e=>{
-      if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||a.target==='_blank')return;
-      const href=a.getAttribute('href');
-      if(!href||href.startsWith('#'))return;
-      e.preventDefault();
-      document.body.classList.add('leaving');
-      setTimeout(()=>location.href=href,340);
-    });
-  });
-}
+
 
 function setupReveal(){
   const items=document.querySelectorAll('.reveal');
@@ -145,7 +133,7 @@ function populateBrands(){
 }
 
 function productCard(p){
-  return `<article class="product-card reveal"><button class="wishlist" aria-label="Favorito">♡</button><a href="/producto?id=${p.id}" class="product-image"><img loading="lazy" src="${p.image}" alt="${p.name}"><span class="tag" style="display:${p.sale||p.new?'inline-block':'none'}">${p.sale?'SALE':'NUEVO'}</span></a><div class="product-meta"><span class="product-brand">${p.brand} · ${p.category}</span><h3><a href="/producto?id=${p.id}">${p.name}</a></h3><div class="product-row"><strong class="price">${money(p.price)}</strong><button class="add" data-add="${p.id}">+</button></div></div></article>`;
+  return `<article class="product-card reveal"><button class="wishlist" aria-label="Favorito">♥</button><a href="/producto?id=${p.id}" class="product-image"><img loading="lazy" class="primary" src="${p.image}" alt="${p.name}"><img loading="lazy" class="secondary" src="${p.hoverImage || p.image}?auto=format&fit=crop&w=600&q=60" alt="${p.name} hover"><span class="tag" style="display:${p.sale||p.new?'inline-block':'none'}">${p.sale?'SALE':'NUEVO'}</span></a><div class="product-meta"><span class="product-brand">${p.brand} · ${p.category}</span><h3><a href="/producto?id=${p.id}">${p.name}</a></h3><div class="product-row"><strong class="price">${money(p.price)}</strong><button class="add" data-add="${p.id}">+</button></div></div></article>`;
 }
 
 function renderCatalog(){
@@ -268,6 +256,22 @@ function setupProduct(){
     btn.classList.add('active');
     $('#detailMainImage').src=btn.dataset.img;
   }));
+  
+  const mainImageContainer = host.querySelector('.detail-main-image');
+  const mainImg = $('#detailMainImage');
+  mainImageContainer.style.cursor = 'zoom-in';
+  mainImageContainer.addEventListener('mousemove', (e) => {
+    const rect = mainImageContainer.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    mainImg.style.transformOrigin = `${x}% ${y}%`;
+    mainImg.style.transform = 'scale(2.5)';
+  });
+  mainImageContainer.addEventListener('mouseleave', () => {
+    mainImg.style.transformOrigin = 'center top';
+    mainImg.style.transform = 'scale(1)';
+  });
+
   host.querySelectorAll('.choice').forEach(btn=>btn.addEventListener('click',()=>{
     btn.parentElement.querySelectorAll('.choice').forEach(x=>x.classList.remove('active'));
     btn.classList.add('active');
@@ -298,7 +302,6 @@ function init(){
   setTimeout(() => document.body.classList.remove('page-enter'), 600);
   setActiveNav();
   setMenu();
-  transitionLinks();
   setupReveal();
   loadCart();
   wireCart();
@@ -309,8 +312,7 @@ function init(){
   setupHomeFilters();
   setupCollections();
 }
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
-  init();
-}
+document.addEventListener('astro:page-load', init);
+document.addEventListener('astro:before-preparation', () => {
+  document.body.classList.add('leaving');
+});

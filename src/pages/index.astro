@@ -4,6 +4,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CartDrawer from '../components/CartDrawer.astro';
 import Newsletter from '../components/Newsletter.astro';
+import AnimatedText from '../components/ui/AnimatedText.jsx';
+import UiverseButton from '../components/ui/UiverseButton.astro';
 ---
 <BaseLayout title="Elegancia que se reconoce. — CONCEPT CYLO" pageClass="home">
   <Header slot="header" />
@@ -12,14 +14,32 @@ import Newsletter from '../components/Newsletter.astro';
     <div class="hero-media"></div>
     <div class="hero-content">
       <div class="eyebrow">CONCEPT CYLO · EST. 2005</div>
-      <h1>Elegancia que<br><em>se reconoce.</em></h1>
+      <h1 style="display:flex; flex-direction:column; gap:0; font-size:clamp(3rem, 8vw, 6rem); line-height:1; margin-bottom:20px; font-weight:400; letter-spacing:-0.03em;">
+        <AnimatedText client:load text="Elegancia que" />
+        <em style="font-family: serif; font-style: italic; color: #a19d94;"><AnimatedText client:load text="se reconoce." /></em>
+      </h1>
       <p>Moda, calzado, tecnología y hogar seleccionados con una mirada más precisa: menos ruido, mejores piezas y una experiencia de compra que se siente propia.</p>
       <div class="actions">
-        <a class="btn btn-light" href="/tienda">EXPLORAR COLECCIÓN</a>
-        <a class="text-link" style="color:#fff" href="/editorial">VER EDITORIAL</a>
+        <UiverseButton href="/tienda" text="EXPLORAR COLECCION" />
+        <a class="text-link" style="color: #fff;" href="/editorial">VER EDITORIAL</a>
       </div>
     </div>
   </section>
+  <!-- Marquee -->
+  <div class="marquee-container">
+    <div class="marquee-content">
+      <span>ENVÍOS NACIONALES</span><span class="dot">·</span>
+      <span>DEVOLUCIONES GRATUITAS</span><span class="dot">·</span>
+      <span>ATENCIÓN PERSONALIZADA</span><span class="dot">·</span>
+      <span>PAGOS SEGUROS</span><span class="dot">·</span>
+      <span>NUEVA COLECCIÓN DISPONIBLE</span><span class="dot">·</span>
+      <span>ENVÍOS NACIONALES</span><span class="dot">·</span>
+      <span>DEVOLUCIONES GRATUITAS</span><span class="dot">·</span>
+      <span>ATENCIÓN PERSONALIZADA</span><span class="dot">·</span>
+      <span>PAGOS SEGUROS</span><span class="dot">·</span>
+      <span>NUEVA COLECCIÓN DISPONIBLE</span><span class="dot">·</span>
+    </div>
+  </div>
   <section class="section reveal">
     <div class="container">
       <div class="section-head">

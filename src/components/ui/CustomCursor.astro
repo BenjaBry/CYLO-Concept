@@ -1,0 +1,64 @@
+---
+---
+<div id="custom-cursor" transition:persist="custom-cursor"></div>
+
+<style is:inline>
+  #custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-10px, -10px);
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    z-index: 99999;
+    mix-blend-mode: difference;
+  }
+  #custom-cursor.active {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid #fff;
+  }
+  html.custom-cursor-enabled, html.custom-cursor-enabled * {
+    cursor: none !important;
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    const cursor = document.getElementById('custom-cursor');
+    if (!cursor) return;
+    
+    document.documentElement.classList.add('custom-cursor-enabled');
+    document.addEventListener('astro:page-load', () => {
+      document.documentElement.classList.add('custom-cursor-enabled');
+    });
+    
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
+      
+      try {
+        const target = e.target;
+        if (
+          target && 
+          (target.tagName.toLowerCase() === 'a' ||
+          target.tagName.toLowerCase() === 'button' ||
+          target.closest('a') ||
+          target.closest('button') ||
+          window.getComputedStyle(target).cursor === 'pointer')
+        ) {
+          cursor.classList.add('active');
+          cursor.style.transform = `translate(${e.clientX - 20}px, ${e.clientY - 20}px)`;
+        } else {
+          cursor.classList.remove('active');
+        }
+      } catch (err) {
+        cursor.classList.remove('active');
+      }
+    });
+  })();
+</script>
