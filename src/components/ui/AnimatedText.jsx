@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-export default function AnimatedText({ text, className }) {
+export default function AnimatedText({ text, className = '' }) {
   const words = text.split(' ');
   return (
     <div className={className} style={{ display: 'flex', flexWrap: 'wrap', gap: '0.2em' }}>

@@ -20,7 +20,7 @@ import Newsletter from '../components/Newsletter.astro';
       <div class="contact-card reveal">
         <div class="eyebrow">ATENCIÓN PERSONAL</div>
         <h3>Cuéntanos qué necesitas.</h3>
-        <form onsubmit="event.preventDefault();alert('Tu mensaje fue recibido. Te contactaremos de forma personalizada.');">
+        <form onsubmit="window.event.preventDefault();alert('Tu mensaje fue recibido. Te contactaremos de forma personalizada.');">
           <input required placeholder="Nombre">
           <input required type="email" placeholder="Correo">
           <select>
